@@ -24,5 +24,5 @@ class HymnsListViewModel @Inject constructor(
         })
     }
 
-    fun onEntered() = fetchHymnsList()
+    override fun onEntered() = fetchHymnsList()
 }

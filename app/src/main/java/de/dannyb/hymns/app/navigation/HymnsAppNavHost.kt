@@ -5,12 +5,14 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
+import de.dannyb.hymns.presentation.hymndetails.navigation.hymnDetailsScreen
+import de.dannyb.hymns.presentation.hymndetails.navigation.navigateToHymnDetails
 import de.dannyb.hymns.presentation.hymnslist.navigation.hymnsListNavigationRoute
 import de.dannyb.hymns.presentation.hymnslist.navigation.hymnsListScreen
 
 
 @Composable
-fun NiaNavHost(
+fun HymnsAppNavHost(
 //    appState: NiaAppState,
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
@@ -22,9 +24,15 @@ fun NiaNavHost(
         modifier = modifier,
     ) {
         // TODO: handle topic clicks from each top level destination
-        hymnsListScreen(onHymnClicked = {
+        hymnsListScreen(
+            onHymnClicked = {
+                navController.navigateToHymnDetails(it)
+            }
+        )
 
-        })
+        hymnDetailsScreen(
+            onBackClicked = { navController.popBackStack() }
+        )
 
 //        bookmarksScreen(onTopicClick = {})
 //        searchScreen(

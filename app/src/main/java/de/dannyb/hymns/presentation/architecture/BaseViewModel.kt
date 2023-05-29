@@ -54,4 +54,6 @@ abstract class BaseViewModel<VIEW_STATE : Any, NOTIFICATION : Any>(
         _destination.trySend(PresentationDestination.Back)
     }
 
+    abstract fun onEntered() // used to trigger data loading
+
 }
