@@ -31,7 +31,7 @@ abstract class BaseViewModel<VIEW_STATE : Any, NOTIFICATION : Any>(
     internal val useCaseExecutor: UseCaseExecutor
 
     init {
-        useCaseExecutor = UseCaseExecutor.Factory().invoke(viewModelScope)
+        useCaseExecutor = useCaseExecutorFactory.invoke(viewModelScope)
     }
 
     internal fun updateViewState(newViewState: VIEW_STATE) {
