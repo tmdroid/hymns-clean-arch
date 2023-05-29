@@ -13,7 +13,6 @@ import de.dannyb.hymns.presentation.hymnslist.navigation.hymnsListScreen
 
 @Composable
 fun HymnsAppNavHost(
-//    appState: NiaAppState,
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
     startDestination: String = hymnsListNavigationRoute,
@@ -23,33 +22,12 @@ fun HymnsAppNavHost(
         startDestination = startDestination,
         modifier = modifier,
     ) {
-        // TODO: handle topic clicks from each top level destination
         hymnsListScreen(
-            onHymnClicked = {
-                navController.navigateToHymnDetails(it)
-            }
+            onHymnClicked = { navController.navigateToHymnDetails(it) }
         )
 
         hymnDetailsScreen(
             onBackClicked = { navController.popBackStack() }
         )
-
-//        bookmarksScreen(onTopicClick = {})
-//        searchScreen(
-//            onBackClick = navController::popBackStack,
-//            onInterestsClick = { appState.navigateToTopLevelDestination(INTERESTS) },
-//            onTopicClick = navController::navigateToTopic,
-//        )
-//        interestsGraph(
-//            onTopicClick = { topicId ->
-//                navController.navigateToTopic(topicId)
-//            },
-//            nestedGraphs = {
-//                topicScreen(
-//                    onBackClick = navController::popBackStack,
-//                    onTopicClick = {},
-//                )
-//            },
-//        )
     }
 }
