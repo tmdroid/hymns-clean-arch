@@ -24,7 +24,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import de.dannyb.hymns.presentation.hymnslist.model.HymnPresentationModel
 import de.dannyb.hymns.presentation.hymnslist.model.HymnsListViewState
-import de.dannyb.hymns.presentation.hymnslist.viewmodel.HymnsListViewModel
 
 @Composable
 internal fun HymnsListRoute(
