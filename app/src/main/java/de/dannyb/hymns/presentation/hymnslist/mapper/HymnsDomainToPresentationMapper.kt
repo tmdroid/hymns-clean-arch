@@ -1,6 +1,6 @@
 package de.dannyb.hymns.presentation.hymnslist.mapper
 
-import de.dannyb.hymns.domain.hymns.model.HymnDomainModel
+import de.dannyb.hymns.domain.hymnslist.model.HymnDomainModel
 import de.dannyb.hymns.presentation.hymnslist.model.HymnPresentationModel
 import javax.inject.Inject
 

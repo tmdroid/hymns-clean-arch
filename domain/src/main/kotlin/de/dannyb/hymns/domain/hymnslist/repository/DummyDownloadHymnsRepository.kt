@@ -1,6 +1,6 @@
-package de.dannyb.hymns.domain.hymns.repository
+package de.dannyb.hymns.domain.hymnslist.repository
 
-import de.dannyb.hymns.domain.hymns.model.HymnDomainModel
+import de.dannyb.hymns.domain.hymnslist.model.HymnDomainModel
 import javax.inject.Inject
 
 class DummyDownloadHymnsRepository @Inject constructor() : DownloadHymnsRepository {

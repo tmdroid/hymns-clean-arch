@@ -1,4 +1,4 @@
-package de.dannyb.hymns.domain.hymns.model
+package de.dannyb.hymns.domain.hymnslist.model
 
 data class HymnDomainModel(
     val number: Int,

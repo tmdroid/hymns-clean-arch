@@ -1,9 +1,9 @@
-package de.dannyb.hymns.domain.hymns.usecase
+package de.dannyb.hymns.domain.hymnslist.usecase
 
 import de.dannyb.hymns.domain.architecture.coroutine.CoroutineContextProvider
 import de.dannyb.hymns.domain.architecture.usecase.BackgroundExecutingUseCase
-import de.dannyb.hymns.domain.hymns.model.HymnDomainModel
-import de.dannyb.hymns.domain.hymns.repository.DownloadHymnsRepository
+import de.dannyb.hymns.domain.hymnslist.model.HymnDomainModel
+import de.dannyb.hymns.domain.hymnslist.repository.DownloadHymnsRepository
 import javax.inject.Inject
 
 @Suppress("PARAMETER_NAME_CHANGED_ON_OVERRIDE")
