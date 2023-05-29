@@ -3,14 +3,17 @@ package de.dannyb.hymns.presentation.hymndetails.view
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import de.dannyb.hymns.domain.architecture.usecase.UseCaseExecutor
+import de.dannyb.hymns.domain.hymndetails.usecase.GetHymnDetailsUseCase
 import de.dannyb.hymns.presentation.architecture.BaseViewModel
+import de.dannyb.hymns.presentation.hymndetails.mapper.HymnDetailsDomainToPresentationMapper
 import de.dannyb.hymns.presentation.hymndetails.model.HymnDetailsViewState
 import de.dannyb.hymns.presentation.hymndetails.navigation.TopicArgs
-import de.dannyb.hymns.presentation.hymndetails.view.preview.HymnDetailsPreviewParameterProvider
 import javax.inject.Inject
 
 @HiltViewModel
 class HymnDetailsViewModel @Inject constructor(
+    private val getHymnDetailsUseCase: GetHymnDetailsUseCase,
+    private val hymnDetailsDomainToPresentationMapper: HymnDetailsDomainToPresentationMapper,
     savedStateHandle: SavedStateHandle,
     useCaseExecutorFactory: UseCaseExecutor.Factory
 ) : BaseViewModel<HymnDetailsViewState, Unit>(useCaseExecutorFactory) {
@@ -22,11 +25,8 @@ class HymnDetailsViewModel @Inject constructor(
     }
 
     override fun onEntered() {
-        println("XDBG: ${topicArgs.hymnNumber}")
-
-        val provider = HymnDetailsPreviewParameterProvider(topicArgs.hymnNumber)
-        val hymn = provider.values.first()
-
+        val hymn = getHymnDetailsUseCase.executeInBackground(topicArgs.hymnNumber)
+            .let { hymnDetailsDomainToPresentationMapper.toPresentation(it) }
         updateViewState { HymnDetailsViewState.Success(hymn = hymn) }
     }
 }
